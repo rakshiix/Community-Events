@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Local Community Event Portal</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js"></script>
+</head>
+<body>
+
+<!-- welcomeBanner -->
+    <div id="welcomeBanner">
+      <h2>Welcome, <span class="highlight">Community Member</span>!</h2>
+      <p>We're glad to have you back. Don't miss our <span style="color: red; font-weight: bold;">special offer</span> on upcoming premium events!</p>
+    </div>
+
+<!-- Navigation -->
+  <header>
+    <h1>COMMUNITY PORTAL</h1>
+    <nav>
+      <ul>
+        <li><a href="#Home">Home |</a></li>
+        <li><a href="#Events">Events |</a></li>
+        <li><a href="#Contact">Contact |</a></li>
+        <li><a href="help.html" target="_blank">Help</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<!-- Main content -->
+  <main>
+    <center>
+    <section id="home">
+      <h1>Welcome to the Local Community Event Portal</h1>
+      <p>A lightweight, browser-based portal to help residents register for events, check locations, and access basic services.</p>
+    </section>
+    </center>
+
+<!-- Welcome section -->
+    <section id="events">
+      <h2>Upcoming Events</h2>
+      <p>Details about various events will be displayed here.</p>
+      <div class="eventCard">
+        <h3>Community Picnic</h3>
+        <p>Date: July 15, 2025</p>
+        <p>Location: Central Park</p>
+      </div>
+      <div class="eventCard">
+        <h3>Local Art Fair</h3>
+        <p>Date: August 10-12, 2025</p>
+        <p>Location: City Exhibition Hall</p>
+      </div>
+    </section>
+
+<!-- Event Gallery -->
+    <section id="image-gallery" class="gallery-container">
+      <h2>Past Event Gallery</h2>
+      <p>Relive moments from our community's memorable events!</p>
+      <div class="image-gallery">
+        <table>
+          <tr>
+            <td>
+              <img src="community picnic.jpg" alt="Community Picnic 2024 - Group Photo" title="Happy faces at the annual Community Picnic" class="gallery-img">
+              <h2 class="image-caption">Annual Community Picnic</h2>
+            </td>
+            <td>
+              <img src="art fair.webp" alt="Local Art Fair 2024 - Painting" title="A beautiful painting displayed at the Art Fair" class="gallery-img">
+              <h2 class="image-caption">Artwork from the Local Art Fair</h2>
+            </td>
+            <td>
+              <img src="Summer Concert Series.jpeg" alt="Summer Concert Series - Band Playing" title="Live music at the Summer Concert Series" class="gallery-img">
+              <h2 class="image-caption">Summer Concert Series</h2>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img src="park cleanup.png" alt="Park Clean-up Day - Volunteers" title="Dedicated volunteers cleaning the park" class="gallery-img">
+              <h2 class="image-caption">Park Clean-up Day</h2>
+            </td>
+            <td>
+              <img src="coding workshop.jpg" alt="Coding Workshop - Participants" title="Learning to code at the community workshop" class="gallery-img">
+              <h2 class="image-caption">Community Coding Workshop</h2>
+            </td>
+            <td>
+              <img src="local farmer market.jpg" alt="Farmers Market - Fresh Produce" title="Fresh produce at the weekly Farmers Market" class="gallery-img">
+              <h2 class="image-caption">Local Farmers Market</h2>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+<!-- Geolocation -->
+    <div id="geolocation-div" style="text-align: center; padding-right: 0.3%; padding-left: 1%; margin-top: 2rem;">
+        <h2>Find Nearby Events !</h2>
+        <button onclick="findNearbyEvents()">CLICK HERE</button>
+        <div id="locationResult"></div>
+    </div>
+
+<!-- Registration form -->
+    <section id="registration-form">
+      <h2>Event Registration</h2>
+      <form onsubmit="event.preventDefault(); showConfirmation();">
+        <div class="form-group">
+          <label for="fullName">Name:</label>
+          <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" autofocus required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="eventDate">Preferred Event Date:</label>
+          <input type="date" id="eventDate" name="eventDate" required>
+        </div>
+
+        <div class="form-group">
+          <label for="eventType">Event Type:</label>
+          <select id="eventType" name="eventType" required onchange="saveEventTypePreference()">
+            <option value="">--Select an Event Type--</option>
+            <option value="community_picnic">Community Picnic</option>
+            <option value="art_fair">Local Art Fair</option>
+            <option value="summer_concert">Summer Concert Series</option>
+            <option value="park_cleanup">Park Clean-up Day</option>
+            <option value="coding_workshop">Coding Workshop</option>
+            <option value="farmers_market">Farmers Market</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message (optional):</label>
+          <textarea id="message" name="message" rows="4" placeholder="Any special requests or comments?"></textarea>
+        </div>
+
+        <div class="form-group">
+          <input type="submit" value="Register for Event">
+        </div>
+
+        <output id="confirmationMessage"></output>
+      </form>
+
+        <div class="form-group">
+            <button onclick="clearPreferences()">Clear Preferences</button>
+        </div>
+    </section>
+
+<!-- Feedback section -->
+    <section id="feedback-section">
+        <h2>Event Feedback</h2>
+        <form>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="e.g., 123-456-7890" onblur="validatePhoneNumber()">
+                <output id="phoneValidationMessage"></output>
+            </div>
+
+            <div class="form-group">
+                <label for="eventFee">Select Event for Feedback:</label>
+                <select id="eventFee" name="eventFee" onchange="displayEventFee()">
+                    <option value="">--Select an Event--</option>
+                    <option value="0">Community Picnic (Free)</option>
+                    <option value="0">Local Art Fair (Free)</option>
+                    <option value="20">Summer Concert Series ($20)</option>
+                    <option value="15">Park Clean-up Day ($15)</option>
+                    <option value="10">Coding Workshop ($10)</option>
+                    <option value="5">Farmers Market ($5)</option>
+                </select>
+                <output id="eventFeeDisplay" style="display: none;"></output>
+            </div>
+
+            <div class="form-group">
+                <label for="feedbackTextarea">Your Feedback:</label>
+                <textarea id="feedbackTextarea" name="feedback" rows="6" placeholder="Share your thoughts on the event..." onkeyup="countCharacters()"></textarea>
+                <output id="charCount">0 characters</output>
+            </div>
+
+            <div class="form-group">
+                <input type="button" value="Submit Feedback" onclick="showFeedbackConfirmation()">
+            </div>
+            <output id="feedbackConfirmation"></output>
+        </form>
+    </section>
+
+<!-- Video -->
+    <section id="video-invite-section">
+        <h2>Video Invite to Our Next Big Event!</h2>
+        <p>Get a sneak peek of what's coming up. Make sure your speakers are on!</p>
+        <video id="eventVideo" controls oncanplay="videoCanPlay()" onended="videoEnded()">
+            <source src="community event.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div id="videoStatus"></div>
+    </section>
+
+<!-- Contact -->
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>If you have any questions, feel free to reach out!</p>
+      <address>
+        Email: <a href="mailto:commevents@example.com">commevents@gmail.com</a><br />
+        Phone: <a href="tel:+1234567890">+1 (234) 567-890</a>
+      </address>
+    </section>
+
+<!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Local City Council</p>
+  </footer>
+
+  </main>
+</body>
+</html>
