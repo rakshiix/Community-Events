@@ -1,0 +1,314 @@
+ * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box; 
+    }
+
+    body {
+      font-family: sans-serif;
+    }
+
+    .highlight {
+      font-weight: bold;
+      color: darkgreen;
+    }
+    
+    h3,
+    p {
+      line-height: 1.6;
+      color: #333;
+    }
+
+/* Header Styles */
+header {
+  background-color: #f8f8f858;
+  padding-left: 37.8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid black;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+  margin-right: 30px;
+  padding: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #007acc;
+}
+
+/* Section Styles */
+section {
+  padding: 2rem;
+  border-top: 1px solid #ccc;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #f8f8f858;
+  padding: 1rem;
+  text-align: center;
+  border-top: 1px solid black;
+}
+
+/* Welcome Banner Styles */
+#welcomeBanner {
+  background-color: lightblue;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #333;
+}
+
+/* Styles for event containers */
+.eventCard {
+      border: 1px solid #ccc;
+      padding: 1rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+.highlight {
+  font-weight: bold;
+  color: darkgreen;
+}
+
+/* Gallery Styles */
+.gallery-container {
+  text-align: center;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.image-gallery table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+}
+
+.image-gallery td {
+  padding: 10px;
+  text-align: center;
+  vertical-align: top;
+}
+
+.gallery-img {
+  width: 200px;
+  height: 200px; 
+  border: 3px solid black;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 5px auto;
+}
+
+.image-caption {
+  font-size: 0.9em;
+  color: black;
+  margin-top: 5px;
+  padding: 10px;
+}
+
+table.gallery {
+  margin: 2rem auto;
+  border-collapse: collapse;
+}
+
+table.gallery td {
+  text-align: center;
+  padding: 1rem;
+}
+
+figcaption {
+  margin-top: 0.5rem;
+  font-style: italic;
+  color: #666;
+}
+
+#gallery h2 {
+  text-align: center;
+  padding-right: 1%;
+}
+
+/* Event Registration Form Styles */
+#registration-form {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+#registration-form h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="date"],
+.form-group select,
+.form-group textarea {
+  width: calc(100% - 20px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-group input[type="submit"] {
+  background-color: #007acc;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  width: 100%;
+}
+
+.form-group input[type="submit"]:hover {
+  background-color: #005f99;
+}
+
+#confirmationMessage, #feedbackConfirmation, #phoneValidationMessage, #eventFeeDisplay, #charCount {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #4caf50;
+  background-color: #e6ffe6;
+  color: #333;
+  border-radius: 4px;
+  display: none;
+  text-align: center;
+  font-weight: bold;
+}
+
+#phoneValidationMessage.error {
+  border-color: #f44336;
+  background-color: #ffe6e6;
+  color: #d32f2f;
+}
+
+#eventFeeDisplay {
+  background-color: #e0f2f7;
+  border-color: #2196f3;
+  color: #0d47a1;
+  display: block;
+  text-align: left;
+}
+
+#charCount {
+  background-color: #fff8e1;
+  border-color: #ffc107;
+  color: #ff6f00;
+  display: block;
+  text-align: right;
+  font-size: 0.9em;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+}
+
+/* Feedback Form Styles */
+#feedback-section {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+#feedback-section h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+/* Video Invite section Styles */
+#video-invite-section {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+#video-invite-section h2 {
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+#eventVideo {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+#videoStatus {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #007acc;
+}
+
+/* Geolocation Button Styling */
+#geolocation-div button {  
+    margin-top: 20px;
+    padding: 0.7rem 1.5rem; 
+    font-size: 1rem; 
+    cursor: pointer; 
+    background-color: rgb(8, 133, 8); 
+    color: white; 
+    border: 1px solid darkgreen; 
+    border-radius: 20px;
+      
+    }
+
+    #locationResult {
+      margin-top: 1rem;
+      font-weight: bold;
+      color: darkblue;
+    }
